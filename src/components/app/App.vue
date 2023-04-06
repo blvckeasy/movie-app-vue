@@ -6,7 +6,11 @@
         <SearchPanel />
         <AppFilter />
       </div>
-      <MovieList :movies="movies"/>
+      <MovieList 
+        :movies="movies" 
+        @onLike="onLikeHandler" 
+        @onFavourite="onFavouriteHandler"
+      />
       <MovieAddForm @createMovie="createMovie" :movies="movies"/>
     </div>
   </div>
@@ -40,6 +44,22 @@
       createMovie(item) {
         this.movies.push(item)
       },
+      onLikeHandler(id) {
+        this.movies = this.movies.map(item => {
+          if (item.id === id) {
+            item.like = !item.like;
+          }
+          return item;
+        });
+      },
+      onFavouriteHandler(id) {
+        this.movies = this.movies.map(item => {
+          if (item.id === id) {
+            item.favourite   = !item.favourite;
+          }
+          return item;
+        });
+      }
     }
   }
 </script>
