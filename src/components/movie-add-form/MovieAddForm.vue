@@ -23,22 +23,32 @@
 
 <script>
 export default {
+  props: {
+    movies: {
+      type: Array,
+      required: true,
+    }
+  },
   data() {
     return {
       name: '',
       viewers: '',
+      response: null
     }
   },
   methods: {
     addMovie () {
       const newMovie = {
+        id: this.movies[this.movies.length - 1].id + 1,
         name: this.name,
         viewers: this.viewers,
         favourite: false,
         like: false, 
       }
-      this.$emit("createMovie", newMovie)
-    }
+      this.$emit("createMovie", newMovie) 
+      this.name = ''
+      this.viewers = '' 
+    }, 
   }
 }
 </script>

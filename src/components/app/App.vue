@@ -7,7 +7,7 @@
         <AppFilter />
       </div>
       <MovieList :movies="movies"/>
-      <MovieAddForm  @createMovie="createMovie"/>
+      <MovieAddForm @createMovie="createMovie" :movies="movies"/>
     </div>
   </div>
 </template>
@@ -30,16 +30,16 @@
     data() {
       return {
         movies: [
-          { name: 'Omar', viewers: 811, favourite: false, like: true },
-          { name: 'Empire of osman', viewers: 141, favourite: true, like: false },
-          { name: 'Ertugrul', viewers: 1267, favourite: true, like: true },
+          { id: 1, name: 'Omar', viewers: 811, favourite: false, like: true },
+          { id: 2, name: 'Empire of osman', viewers: 141, favourite: true, like: false },
+          { id: 3, name: 'Ertugrul', viewers: 1267, favourite: true, like: true },
         ],
       }
     },
     methods: {
       createMovie(item) {
         this.movies.push(item)
-      }
+      },
     }
   }
 </script>
