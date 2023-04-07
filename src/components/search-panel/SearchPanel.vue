@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input
+    <Input
       type="text"
       class="form-control search-input"
       placeholder="Kinolarni qidirish..."
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  props: {
+  props: { 
     updateTermHandler: {
       type: Function,
       required: true,
